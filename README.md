@@ -35,13 +35,19 @@ Task Force Wallet app is a web application designed to simplify expense and inco
    ```bash
    git clone https://github.com/your-username/wallet-pro.git
    cd taskforce-wallet-app
-2. run npm install
+2. run 
+   ```bash
+    npm install
 3. in your .env place the following environment:
-      DATABASE_URL=your-database-url
+     ```bash
+     DATABASE_URL=your-database-url
      NEXTAUTH_SECRET=your-secret-key 
      NEXT_PUBLIC_API_URL=api url
 
-4. run npx prisma migrate dev
+4. run 
+  ```bash
+ npx prisma migrate dev
+     ```bash   
 6. npm run dev
 
 
