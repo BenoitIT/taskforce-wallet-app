@@ -139,7 +139,7 @@ export const GET = async (req: Request) => {
     data: {
       totalIncomeMade: totalIncomeMadeInTimeRange._sum.amount,
       totalExpenseMade: totalRevenueMadeInTimeRange._sum.amount,
-      currentYearBuget: currentYearBuget?.remainingAmount,
+      currentYearBuget: currentYearBuget?.remainingAmount||0,
       expenseCount: countOfExepenseMadeInTimeRange._count.id,
       simpleExapnsesRecord: simpleExapnsesRecord,
       chatRecords: chartData,
