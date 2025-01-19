@@ -15,14 +15,14 @@ import {
 import { useSession } from "next-auth/react";
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { categoriesInfo } from "@/interfaces/categories";
-import { createCategory, getCategory, updateCategory } from "@/app/services/category";
+import { getCategory, updateCategory } from "@/app/services/category";
 import { toast } from "react-toastify";
 import useSWR from "swr";
 import Loader from "@/components/loader";
 import ErrorSection from "@/components/error-section";
-import { updateBuget } from "@/app/services/budget";
 
-const Page = ({ className, ...props }: React.ComponentProps<"div">) => {
+
+const Page = () => {
   const router = useRouter();
   const session: any = useSession();
   const params: any = useParams();
@@ -84,6 +84,7 @@ const Page = ({ className, ...props }: React.ComponentProps<"div">) => {
           toast.error(response?.message || "Failed to update category");
         }
       } catch (error) {
+        console.error(error)
         toast.error("An error occurred. Please try again.");
       } finally {
         setLoading(false);
@@ -92,7 +93,7 @@ const Page = ({ className, ...props }: React.ComponentProps<"div">) => {
   };
  if(data){
   return (
-    <div className={cn("flex flex-col gap-6 mt-6", className)} {...props}>
+    <div className={cn("flex flex-col gap-6 mt-6")}>
       <b
         className="font-semibold text-base hover:cursor-pointer"
         onClick={() => router.back()}

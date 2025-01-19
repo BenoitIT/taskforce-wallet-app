@@ -30,6 +30,7 @@ export const POST = async (req: NextRequest) => {
       data: budget,
     });
   } catch (err) {
+    console.error(err)
     return NextResponse.json({
       status: 400,
       message: "Unexpected error occurs",

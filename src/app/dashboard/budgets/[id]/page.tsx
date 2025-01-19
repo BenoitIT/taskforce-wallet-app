@@ -16,12 +16,12 @@ import {
 import { useSession } from "next-auth/react";
 import { toast } from "react-toastify";
 import { BudgetInfo } from "@/interfaces/budget";
-import { createBuget, getBudget, updateBuget } from "@/app/services/budget";
+import { getBudget, updateBuget } from "@/app/services/budget";
 import useSWR from "swr";
 import Loader from "@/components/loader";
 import ErrorSection from "@/components/error-section";
 
-const Page = ({ className, ...props }: React.ComponentProps<"div">) => {
+const Page = () => {
   const router = useRouter();
   const params: any = useParams();
   const id = params?.id;
@@ -79,6 +79,7 @@ const Page = ({ className, ...props }: React.ComponentProps<"div">) => {
           toast.error(response?.message || "Failed to update budget");
         }
       } catch (error) {
+        console.error(error)
         toast.error("An error occurred. Please try again.");
       } finally {
         setLoading(false);
@@ -103,7 +104,7 @@ const Page = ({ className, ...props }: React.ComponentProps<"div">) => {
   }, []);
   if (data) {
     return (
-      <div className={cn("flex flex-col gap-6 mt-6", className)} {...props}>
+      <div className={cn("flex flex-col gap-6 mt-6")}>
         <b
           className="font-semibold text-base hover:cursor-pointer"
           onClick={() => router.back()}

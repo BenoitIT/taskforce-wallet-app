@@ -30,6 +30,7 @@ const Page = () => {
         toast.error(response?.message || "Failed to create category");
       }
     } catch (error) {
+      console.error(error)
       toast.error("An error occurred. Please try again.");
     } finally {
     }
@@ -60,7 +61,7 @@ const Page = () => {
               <dl className="sm:divide-y sm:divide-gray-200">
                 {data.data?.length > 0 ? (
                   data.data.map((note: Notification) => (
-                    <div className="py-3 sm:py-5 sm:grid sm:grid-cols-1 sm:gap-4 sm:px-6 even:bg-gray-50">
+                    <div className="py-3 sm:py-5 sm:grid sm:grid-cols-1 sm:gap-4 sm:px-6 even:bg-gray-50" key={note.id}>
                       <dt className="text-sm font-medium text-gray-700 flex gap-2">
                         <span>
                           <Bell className="w-[20px] text-gray-500" />

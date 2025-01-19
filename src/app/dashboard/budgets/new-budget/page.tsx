@@ -18,7 +18,7 @@ import { toast } from "react-toastify";
 import { BudgetInfo } from "@/interfaces/budget";
 import { createBuget } from "@/app/services/budget";
 
-const Page = ({ className, ...props }: React.ComponentProps<"div">) => {
+const Page = () => {
   const router = useRouter();
   const [years, setYears] = useState<number[]>([]);
   const session: any = useSession();
@@ -72,6 +72,7 @@ const Page = ({ className, ...props }: React.ComponentProps<"div">) => {
           toast.error(response?.message || "Failed to create budget");
         }
       } catch (error) {
+        console.error(error)
         toast.error("An error occurred. Please try again.");
       } finally {
         setLoading(false);
@@ -90,7 +91,7 @@ const Page = ({ className, ...props }: React.ComponentProps<"div">) => {
     getNext50Years();
   }, []);
   return (
-    <div className={cn("flex flex-col gap-6 mt-6", className)} {...props}>
+    <div className={cn("flex flex-col gap-6 mt-6")}>
       <b
         className="font-semibold text-base hover:cursor-pointer"
         onClick={() => router.back()}

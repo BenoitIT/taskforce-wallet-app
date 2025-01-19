@@ -10,7 +10,7 @@ import { cashAccountInfo } from "@/interfaces/accounts";
 import { createCashaccount } from "@/app/services/account";
 import { toast } from "react-toastify";
 import { useSession } from "next-auth/react";
-const Page = ({ className, ...props }: React.ComponentProps<"div">) => {
+const Page = () => {
   const router = useRouter();
   const session: any = useSession();
   const [payload, setPayload] = useState<cashAccountInfo>({});
@@ -58,6 +58,7 @@ const Page = ({ className, ...props }: React.ComponentProps<"div">) => {
           toast.error(response?.message || "Failed to create money account");
         }
       } catch (error) {
+        console.error(error)
         toast.error("An error occurred. Please try again.");
       } finally {
         setLoading(false);
@@ -65,7 +66,7 @@ const Page = ({ className, ...props }: React.ComponentProps<"div">) => {
     }
   };
   return (
-    <div className={cn("flex flex-col gap-6 mt-6", className)} {...props}>
+    <div className={cn("flex flex-col gap-6 mt-6")}>
       <b
         className="font-semibold text-base hover:cursor-pointer"
         onClick={() => router.back()}

@@ -1,12 +1,10 @@
 "use client";
 import { FaEdit, FaTrash } from "react-icons/fa";
-import { useEffect, useState, Suspense } from "react";
+import { useState, Suspense } from "react";
 import { transactionCategoryHeaders } from "@/components/table-headers/categories";
-import { useRouter, usePathname, useSearchParams } from "next/navigation";
+import { useRouter, usePathname} from "next/navigation";
 import Loader from "@/components/loader";
 import ErrorSection from "@/components/error-section";
-import Paginator from "@/components/paiginator";
-import usePagination from "@/hooks/usePagination";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -27,9 +25,6 @@ import { toast } from "react-toastify";
 const Page = () => {
   const router = useRouter();
   const currentpath: string = usePathname()!;
-  const searchParams: any = useSearchParams();
-  const activePage = searchParams?.get("page");
-  const [currentPage, setCurrentPage] = useState(1);
   const [rowId, setRowId] = useState<any>();
   const session: any = useSession();
   const [action, setRespondAction] = useState(false);
@@ -38,8 +33,6 @@ const Page = () => {
     userId && ["category", userId, action],
     () => getCategories(userId)
   );
-  const { handlePageChange, handleNextPage, handlePreviousPage } =
-    usePagination(data?.data, currentPage);
   const handleEdit = async (id: number | string) => {
     router.push(`${currentpath}/${id}`);
   };
@@ -57,11 +50,6 @@ const Page = () => {
     }
   };
 
-  useEffect(() => {
-    if (activePage) {
-      setCurrentPage(activePage);
-    }
-  }, [activePage]);
   const actions = [
     { icon: <FaEdit />, Click: handleEdit },
     {

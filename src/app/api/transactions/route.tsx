@@ -26,7 +26,8 @@ export const POST = async (req: NextRequest) => {
           message: "Missing required fields",
         });
       }
-    } catch (parseError) {
+    } catch (err) {
+      console.error(err)
       return NextResponse.json({
         status: 400,
         message: "Invalid request body format",

@@ -6,8 +6,6 @@ import { headers } from "@/components/table-headers/account";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import Loader from "@/components/loader";
 import ErrorSection from "@/components/error-section";
-import Paginator from "@/components/paiginator";
-import usePagination from "@/hooks/usePagination";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -30,7 +28,6 @@ const Page = () => {
   const searchParams: any = useSearchParams();
   const session: any = useSession();
   const activePage = searchParams?.get("page");
-  const [currentPage, setCurrentPage] = useState(1);
   const [rowId, setRowId] = useState<any>();
   const [action, setRespondAction] = useState(false);
   const userId = session?.data?.id;
@@ -38,8 +35,6 @@ const Page = () => {
     userId && ["cashaccount", userId, action],
     () => getCashaccount(userId)
   );
-  const { handlePageChange, handleNextPage, handlePreviousPage } =
-    usePagination(data, currentPage);
   const handleEdit = async (id: number | string) => {
     router.push(`${currentpath}/${id}`);
   };
@@ -59,7 +54,6 @@ const Page = () => {
 
   useEffect(() => {
     if (activePage) {
-      setCurrentPage(activePage);
     }
   }, [activePage]);
   const actions = [

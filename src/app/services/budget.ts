@@ -6,7 +6,7 @@ export const createBuget = async (data: BudgetInfo) => {
     const response = await walletApi.post(budgetBaseEndpoint, data);
     return { message: response.data.message, status: response.data.status };
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 };
 
@@ -24,7 +24,7 @@ export const deleteBudget = async (id: number) => {
     const response = await walletApi.delete(budgetBaseEndpoint + `/${id}`);
     return response.data.message;
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 };
 
@@ -33,7 +33,7 @@ export const getBudget = async (id: number) => {
     const response = await walletApi.get(budgetBaseEndpoint + `/${id}`);
     return { data: response.data.data, status: response.data.status };
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 }; 
 
@@ -42,6 +42,6 @@ export const updateBuget = async (data: BudgetInfo,id:number) => {
     const response = await walletApi.put(`${budgetBaseEndpoint}/${id}`, data);
     return { message: response.data.message, status: response.data.status }
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 };

@@ -5,7 +5,6 @@ export const revalidate = 0;
 export const POST = async (req: NextRequest) => {
   try {
     const body = await req.json();
-    console.log("body",body)
     const inpuValidation = accountValidationSchema.safeParse(body);
     if (!inpuValidation.success)
       return NextResponse.json({

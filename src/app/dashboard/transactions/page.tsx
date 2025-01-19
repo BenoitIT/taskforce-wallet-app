@@ -1,15 +1,11 @@
 "use client";
-import { FaEdit, FaTrash } from "react-icons/fa";
-import { useEffect, useState, Suspense } from "react";
+import {FaTrash } from "react-icons/fa";
+import { useState, Suspense } from "react";
 import {
   transactionHeaders,
-  transactionData,
 } from "@/components/table-headers/transactions";
-import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import Loader from "@/components/loader";
 import ErrorSection from "@/components/error-section";
-import Paginator from "@/components/paiginator";
-import usePagination from "@/hooks/usePagination";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -28,12 +24,7 @@ import { useSession } from "next-auth/react";
 import { toast } from "react-toastify";
 
 const Page = () => {
-  const router = useRouter();
   const session: any = useSession();
-  const currentpath: string = usePathname()!;
-  const searchParams: any = useSearchParams();
-  const activePage = searchParams?.get("page");
-  const [currentPage, setCurrentPage] = useState(1);
   const [rowId, setRowId] = useState<any>();
   const [action, setRespondAction] = useState(false);
   const userId = session?.data?.id;
@@ -41,11 +32,7 @@ const Page = () => {
     userId && ["transactions", userId,action],
     () => getTransactions(userId)
   );
-  const { handlePageChange, handleNextPage, handlePreviousPage } =
-    usePagination(transactionData, currentPage);
-  const handleEdit = async (id: number | string) => {
-    router.push(`${currentpath}/${id}`);
-  };
+
 
   const handleDelete = async (id: number) => {
     setRowId(id);
@@ -61,11 +48,6 @@ const Page = () => {
     }
   };
 
-  useEffect(() => {
-    if (activePage) {
-      setCurrentPage(activePage);
-    }
-  }, [activePage]);
   const actions = [
     {
       icon: (

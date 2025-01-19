@@ -26,7 +26,7 @@ export const deleteCashAccount = async (id: number) => {
     const response = await walletApi.delete(cashAccountBaseEndpoint + `/${id}`);
     return response.data.message;
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 };
 export const getAccount = async (id: number) => {

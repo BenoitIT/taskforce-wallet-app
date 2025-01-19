@@ -6,7 +6,7 @@ export const createTransaction = async (data: categoriesInfo) => {
     const response = await walletApi.post(transactionsBaseEndpoint, data);
     return { message: response.data.message, status: response.data.status };
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 };
 
@@ -26,6 +26,6 @@ export const deleteTransaction = async (id: number) => {
     const response = await walletApi.delete(transactionsBaseEndpoint + `/${id}`);
     return response.data.message;
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 };

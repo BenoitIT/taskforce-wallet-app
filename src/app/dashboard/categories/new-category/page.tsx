@@ -18,7 +18,7 @@ import { categoriesInfo } from "@/interfaces/categories";
 import { createCategory } from "@/app/services/category";
 import { toast } from "react-toastify";
 
-const Page = ({ className, ...props }: React.ComponentProps<"div">) => {
+const Page = () => {
   const router = useRouter();
   const session: any = useSession();
   const [payload, setPayload] = useState<categoriesInfo>({});
@@ -70,6 +70,7 @@ const Page = ({ className, ...props }: React.ComponentProps<"div">) => {
           toast.error(response?.message || "Failed to create category");
         }
       } catch (error) {
+        console.error(error)
         toast.error("An error occurred. Please try again.");
       } finally {
         setLoading(false);
@@ -77,7 +78,7 @@ const Page = ({ className, ...props }: React.ComponentProps<"div">) => {
     }
   };
   return (
-    <div className={cn("flex flex-col gap-6 mt-6", className)} {...props}>
+    <div className={cn("flex flex-col gap-6 mt-6")}>
       <b
         className="font-semibold text-base hover:cursor-pointer"
         onClick={() => router.back()}

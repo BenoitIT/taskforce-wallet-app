@@ -6,7 +6,6 @@ export const PUT = async (req: Request) => {
   try {
     const userId = req.url.split("users/")[1];
     const body = await req.json();
-    console.log(body)
     const user = await prisma.user.findFirst({
       where: {
         id: Number(userId),
@@ -43,6 +42,7 @@ export const PUT = async (req: Request) => {
       });
     }
   } catch (err) {
+    console.error(err)
     return NextResponse.json({
       status: 400,
       message: "something went wrong",

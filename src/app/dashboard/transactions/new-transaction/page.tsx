@@ -19,7 +19,7 @@ import { toast } from "react-toastify";
 import { transactionInfo } from "@/interfaces/transaction";
 import { createTransaction } from "@/app/services/transaction";
 
-const Page = ({ className, ...props }: React.ComponentProps<"div">) => {
+const Page = () => {
   const router = useRouter();
   const session: any = useSession();
   const userId = session?.data?.id;
@@ -67,6 +67,7 @@ const Page = ({ className, ...props }: React.ComponentProps<"div">) => {
         toast.error(response?.message || "Failed to create transaction");
       }
     } catch (error) {
+      console.error(error)
       toast.error("An error occurred. Please try again.");
     } finally {
       setLoading(false);
@@ -75,7 +76,7 @@ const Page = ({ className, ...props }: React.ComponentProps<"div">) => {
 
   if (data?.data) {
     return (
-      <div className={cn("flex flex-col gap-6 mt-6", className)} {...props}>
+      <div className={cn("flex flex-col gap-6 mt-6")} >
         <b
           className="font-semibold text-base hover:cursor-pointer"
           onClick={() => router.back()}
@@ -133,6 +134,11 @@ const Page = ({ className, ...props }: React.ComponentProps<"div">) => {
                     placeholder="Ex:1000"
                     onChange={handleChange}
                   />
+                  <span
+                  className={errors?.amount? "text-xs text-red-500" : "hidden"}
+                >
+                  {errors?.amount}
+                </span>
                 </div>
                 <div className="grid gap-2">
                   <Label htmlFor="notes">Notes</Label>
@@ -141,6 +147,12 @@ const Page = ({ className, ...props }: React.ComponentProps<"div">) => {
                     placeholder="Type Notes here."
                     onChange={handleChange}
                   />
+
+<span
+                  className={errors?.notes ? "text-xs text-red-500" : "hidden"}
+                >
+                  {errors?.notes}
+                </span>
                 </div>
 
                 <Button
