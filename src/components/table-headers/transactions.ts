@@ -1,0 +1,56 @@
+export const transactionHeaders = [
+    { header: "Account Name", field: "accountName" },
+    { header: "Category", field: "categoryName" },
+    { header: "Type", field: "categoryType" },
+    { header: "Amount", field: "amount" },
+    { header: "Date", field: "date" },
+    { header: "Notes", field: "notes" },
+  ];
+  export const transactionData = [
+    {
+      transaction_id: "TXN001",
+      account_name: "Main Bank Account",
+      type: "Income",
+      category: "Salary",
+      amount: 2000.0,
+      date: "2025-01-01",
+      notes: "January salary credited.",
+    },
+    {
+      transaction_id: "TXN002",
+      account_name: "Savings Account",
+      type: "Expense",
+      category: "Rent",
+      amount: 800.0,
+      date: "2025-01-03",
+      notes: "Paid house rent for January.",
+    },
+    {
+      transaction_id: "TXN003",
+      account_name: "Mobile Money",
+      type: "Expense",
+      category: "Groceries",
+      amount: 150.5,
+      date: "2025-01-05",
+      notes: "Purchased groceries.",
+    },
+    {
+      transaction_id: "TXN004",
+      account_name: "Cash Wallet",
+      type: "Expense",
+      category: "Transportation",
+      amount: 50.0,
+      date: "2025-01-07",
+      notes: "Paid for public transport.",
+    },
+    {
+      transaction_id: "TXN005",
+      account_name: "Business Account",
+      type: "Income",
+      category: "Freelance",
+      amount: 500.0,
+      date: "2025-01-10",
+      notes: "Received payment for freelance project.",
+    },
+  ];
+  
