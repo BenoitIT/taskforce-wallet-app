@@ -23,7 +23,7 @@ export default function DashboardLayout({
     <div className=" min-h-screen h-full flex w-full">
       <NotificationContext.Provider value={{ count: data?.data || 0 }}>
         <SidebarProvider>
-          <div className="w-[20%] md:w-[15vw] lg:w-[16%]  p-4 sticky top-0 h-screen">
+          <div className="w-[20%] md:w-[13vw] lg:w-[16%]  p-4 sticky top-0 h-screen z-20">
             <AppSidebar />
           </div>
           <div className="w-full  bg-gray-100 min-h-fit h-full -ml-4">
@@ -38,7 +38,7 @@ export default function DashboardLayout({
                 </p>
               </div>
             </div>
-            <div className="p-0 md:p-4 border rounded border-gray-200 min-h-[88vh]">
+            <div className="p-0 md:p-4 border rounded border-gray-200 min-h-[88vh] z-0">
               {children}
             </div>
           </div>
