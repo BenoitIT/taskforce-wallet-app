@@ -58,7 +58,7 @@ const Page = () => {
           toast.error(response?.message || "Failed to create money account");
         }
       } catch (error) {
-        console.error(error)
+        console.error(error);
         toast.error("An error occurred. Please try again.");
       } finally {
         setLoading(false);
@@ -99,7 +99,7 @@ const Page = () => {
                   id="name"
                   type="text"
                   name="name"
-                  placeholder="Ex:Equity mobile money"
+                  placeholder="Ex:Equity, MOMO.."
                   onChange={handleChange}
                 />
                 <span
