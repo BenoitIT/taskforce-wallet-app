@@ -1,4 +1,4 @@
-# **Task Force Wallet Pro**
+# **Task Force Wallet web app**
 
 Task Force Wallet app is a web application designed to simplify expense and income tracking across multiple accounts. Built using Next.js for both frontend and backend, the application enables users to manage transactions, set budgets, and gain insights into their financial habits through data visualizations.
 
