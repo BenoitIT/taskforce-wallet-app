@@ -1,4 +1,4 @@
-name: wallet app
+name: Wallet App
 
 on:
   push:
@@ -9,38 +9,32 @@ on:
       - "*"
 
 jobs:
-  lintTest:
-    name: lint codes
-    runs-on: ubuntu-latest
-    steps:
-      - name: clone Repository
-        uses: actions/checkout@v2
-      - name: List Repository Contents
-        run: |
-          ls -al
-      - name: install dependencies
-        run: |
-          echo "Installing dependencies"
-          npm install
-      - name: Lint
-        run: |
-          echo "Running Linting tests"
-          npm run lint
-        env:
-          CI: true
-
   securityCheck:
-    name: security Check
+    name: Security Check
     runs-on: ubuntu-latest
     steps:
-      - name: check for security
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Security scan
         run: |
-          echo "running security check ...1"
+          echo "Running security check ...1"
           sleep 3s
-          echo "running security check ...2"
+          echo "Running security check ...2"
           sleep 3s
 
+  build:
+    name: Build
+    needs: securityCheck
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install dependencies
+        run: npm ci
 
+      - name: Build application
+        run: npm run build
 
-
-
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
