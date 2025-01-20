@@ -65,7 +65,7 @@ export const AppSidebar = () => {
   const pathname = usePathname();
   const {count}=useContext<NotificationContextProps>(NotificationContext);
   return (
-    <Sidebar>
+    <Sidebar className="z-20">
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel className="text-2xl mt-3 font-semibold text-gray-900">
