@@ -23,6 +23,16 @@ Task Force Wallet app is a web application designed to simplify expense and inco
 - **Charts**: Chart.js (or any library used)
 
 ---
+*** The following are the images represnting the dashboard.
+<img width="1707" alt="Screenshot 2025-01-18 at 08 07 33" src="https://github.com/user-attachments/assets/870f1754-7b69-4914-a901-4b456e1f4d38" />
+<img width="1710" alt="Screenshot 2025-01-18 at 07 30 56" src="https://github.com/user-attachments/assets/825403e1-dd26-4263-9f32-72a90266b55f" />
+<img width="1706" alt="Screenshot 2025-01-18 at 07 30 33" src="https://github.com/user-attachments/assets/017add34-4f8d-4d55-a6fd-dbcd3b33c27f" />
+<img width="1710" alt="Screenshot 2025-01-18 at 07 29 38" src="https://github.com/user-attachments/assets/f5d8f610-38b5-4817-a61e-87eadafb0a90" />
+<img width="1690" alt="Screenshot 2025-01-18 at 07 29 15" src="https://github.com/user-attachments/assets/b0bc6af2-d1fe-4643-9af1-016f7a18a615" />
+<img width="1710" alt="Screenshot 2025-01-18 at 07 29 00" src="https://github.com/user-attachments/assets/1bc7c0d7-f710-4d75-a064-681516018534" />
+
+the following image represent ERD of wallet db
+<img width="780" alt="Screenshot 2025-01-20 at 09 18 02" src="https://github.com/user-attachments/assets/91c07046-1a91-4a7e-b240-2d187e25fb85" />
 
 ## **Getting Started**
 
@@ -49,15 +59,5 @@ Task Force Wallet app is a web application designed to simplify expense and inco
  npx prisma migrate dev
  npm run dev
 
-*** The following are the images represnting the dashboard.
-<img width="1707" alt="Screenshot 2025-01-18 at 08 07 33" src="https://github.com/user-attachments/assets/870f1754-7b69-4914-a901-4b456e1f4d38" />
-<img width="1710" alt="Screenshot 2025-01-18 at 07 30 56" src="https://github.com/user-attachments/assets/825403e1-dd26-4263-9f32-72a90266b55f" />
-<img width="1706" alt="Screenshot 2025-01-18 at 07 30 33" src="https://github.com/user-attachments/assets/017add34-4f8d-4d55-a6fd-dbcd3b33c27f" />
-<img width="1710" alt="Screenshot 2025-01-18 at 07 29 38" src="https://github.com/user-attachments/assets/f5d8f610-38b5-4817-a61e-87eadafb0a90" />
-<img width="1690" alt="Screenshot 2025-01-18 at 07 29 15" src="https://github.com/user-attachments/assets/b0bc6af2-d1fe-4643-9af1-016f7a18a615" />
-<img width="1710" alt="Screenshot 2025-01-18 at 07 29 00" src="https://github.com/user-attachments/assets/1bc7c0d7-f710-4d75-a064-681516018534" />
-
-the following image represent ERD of wallet db
-<img width="780" alt="Screenshot 2025-01-20 at 09 18 02" src="https://github.com/user-attachments/assets/91c07046-1a91-4a7e-b240-2d187e25fb85" />
 
 
